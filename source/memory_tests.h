@@ -1,21 +1,22 @@
 #ifndef MEMORY_TESTS_H
 #define MEMORY_TESTS_H
 
-// To jest struktura przechowująca informacje o operacjach na pamięci.
-// Nie pozwalamy kompilatorowi optymalizować operacji na tych wartościach.
+#include <stdint.h>
+
+// Structure to store memory operation statistics.
 typedef struct {
-  volatile unsigned call_total;    // licznik wszystkich wywołań funkcji
-  volatile unsigned call_counter;  // licznik wywołań alokacji
-  volatile unsigned fail_counter;  // numer błędnej alokacji
-  volatile unsigned alloc_counter; // liczba wykonanych alokacji
-  volatile unsigned free_counter;  // liczba wykonanych zwolnień
-  volatile char *function_name;    // nazwa nieudanej funkcji
-} memory_test_data_t;
+    volatile unsigned total_calls;    // Total calls to memory functions.
+    volatile unsigned alloc_calls;    // Number of allocation attempts.
+    volatile unsigned fail_at_call;   // Call number at which allocation fails.
+    volatile unsigned alloc_count;    // Successful allocations.
+    volatile unsigned free_count;     // Successful deallocations.
+    volatile char *failed_function;   // Name of the function that failed.
+} memory_test_stats_t;
 
-// Zapewnia dostęp do wyżej zdefiniowanej struktury.
-memory_test_data_t * get_memory_test_data(void);
+// Get access to memory test statistics.
+memory_test_stats_t *get_memory_test_stats(void);
 
-// Testuje działanie modułu testującego zarządzanie pamięcią.
-void memory_tests_check(void);
+// Test the memory management behavior of the library.
+void memory_tests_run(void);
 
 #endif

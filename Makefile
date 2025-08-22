@@ -10,7 +10,7 @@ BUILD_DIR = build
 OBJECTS = $(BUILD_DIR)/ma.o $(BUILD_DIR)/memory_tests.o
 EXAMPLE_OBJECT = $(BUILD_DIR)/ma_example.o
 
-all: libma.so ma_example
+all: libma.so
 
 libma.so: $(OBJECTS)
 	$(CC) $^ $(LDFLAGS) -o $@
