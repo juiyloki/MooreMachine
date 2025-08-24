@@ -1,5 +1,5 @@
 # MooreMachine
-Moore machine system implementation in C by Agata Kopeć
+Moore machine system implementation in C
 
 # Moore Machine Library
 
