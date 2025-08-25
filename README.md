@@ -4,7 +4,7 @@ Moore machine system implementation in C [COMPLETED]
 ## Note
 
 This project is a personal solution to a university assignment.  
-The assignment required implementing only the library code, which is what is included here.  
+The assignment focused on the **library code**, which is provided here in a **complete, fully functional, and carefully crafted form**.  
 
 - The official tests and starter materials were provided by the professor and are **intellectual property of the university**, so they are **not published** in this repository.  
 - My own tests and example usage of the library are still **work in progress**. They have been temporarily set aside to prioritize my other projects and will be added eventually.  
