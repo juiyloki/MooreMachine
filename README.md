@@ -1,5 +1,5 @@
 # MooreMachine
-Moore machine system implementation in C
+Moore machine system implementation in C [COMPLETED]
 
 # Moore Machine Library
 
