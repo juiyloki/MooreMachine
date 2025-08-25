@@ -7,7 +7,7 @@ EXAMPLE_LDFLAGS = -L. -lma -Wl,-rpath=.
 SRC_DIR = source
 BUILD_DIR = build
 
-OBJECTS = $(BUILD_DIR)/ma.o $(BUILD_DIR)/memory_tests.o
+OBJECTS = $(BUILD_DIR)/ma.o
 EXAMPLE_OBJECT = $(BUILD_DIR)/ma_example.o
 
 all: libma.so
@@ -15,10 +15,7 @@ all: libma.so
 libma.so: $(OBJECTS)
 	$(CC) $^ $(LDFLAGS) -o $@
 
-$(BUILD_DIR)/ma.o: $(SRC_DIR)/ma.c $(SRC_DIR)/ma.h $(SRC_DIR)/memory_tests.h | $(BUILD_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(BUILD_DIR)/memory_tests.o: $(SRC_DIR)/memory_tests.c $(SRC_DIR)/memory_tests.h | $(BUILD_DIR)
+$(BUILD_DIR)/ma.o: $(SRC_DIR)/ma.c $(SRC_DIR)/ma.h | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 ma_example: $(EXAMPLE_OBJECT) libma.so
@@ -34,4 +31,3 @@ clean:
 	rm -rf $(BUILD_DIR) libma.so ma_example
 
 .PHONY: all clean ma_example
-
